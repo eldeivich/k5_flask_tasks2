@@ -1,7 +1,7 @@
 from tasks import app
 from flask import render_template, request, url_for, redirect
 
-import csv
+import csv, operator
 
 
 @app.route("/")
@@ -16,7 +16,8 @@ def index():
         for linea in datreader:
             d.append(linea)
 
-    return render_template("index.html", e=d)
+    do = sorted(d, key=operator.itemgetter(2))
+    return render_template("index.html", e=do)
 
 @app.route("/task.html", methods=['GET', 'POST'])
 def task():
