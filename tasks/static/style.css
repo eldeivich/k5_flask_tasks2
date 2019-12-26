@@ -1,0 +1,56 @@
+html {
+    background-color: lightgoldenrodyellow;
+}
+
+h1 {
+    color: blue;
+    width: auto;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+div {
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    
+    text-align: center;
+}
+
+table, tr {
+    width: 750px
+}
+
+th {
+    border-bottom: 1px solid #000;
+    padding: 15px;
+}
+
+td {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+
+div a {
+    display: block;
+    margin-top: 25px;
+    padding-right: 5px;
+    background-color: grey;
+}
+
+a {
+    color: lightgreen;
+    
+    margin-left: 685px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px;
+}
