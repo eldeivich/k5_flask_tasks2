@@ -1,6 +1,6 @@
 from tasks import app
 from flask import render_template, request, url_for, redirect
-
+from datetime import datetime
 import csv, operator
 
 
@@ -30,7 +30,10 @@ def task():
 
     title = request.values.get('title')
     desc = request.values.get('desc')
-    date = request.values.get('date')
+    fecha = request.values.get('date')
+    anio, mes, dia = fecha.split("-")
+    fechajun = dia,mes,anio
+    date = '-'.join(fechajun)
 
     csvwriter.writerow([title, desc, date])
 
