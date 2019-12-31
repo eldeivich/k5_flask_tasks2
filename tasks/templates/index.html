@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Página principal</title>
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 <body>
     <h1>Lista De Tareas</h1>
     
     {% if e | length == 0 %}
-        <p>Sin datos</p>
+        <h1>Sin datos</h1>
     {% else %}
         <div>
             <table>

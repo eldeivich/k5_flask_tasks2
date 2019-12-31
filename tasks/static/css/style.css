@@ -18,6 +18,7 @@ div {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 table {
@@ -26,7 +27,7 @@ table {
 }
 
 table, tr {
-    width: 750px
+    width: 750px;
 }
 
 th {
@@ -40,7 +41,7 @@ td {
 }
 
 div a {
-    display: block;
+    
     margin-top: 25px;
     padding-right: 5px;
     background-color: grey;
@@ -48,9 +49,14 @@ div a {
 
 a {
     color: lightgreen;
-    
+    background-color: grey;
     margin-left: 685px;
     text-decoration: none;
     border: 1px solid black;
     padding: 5px;
+}
+
+form {
+    display: block;
+    text-align: center;
 }

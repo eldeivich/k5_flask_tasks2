@@ -31,6 +31,8 @@ def task():
     title = request.values.get('title')
     desc = request.values.get('desc')
     fecha = request.values.get('date')
+    if title == '' or desc == '' or fecha == '':
+        return render_template('500.html')
     anio, mes, dia = fecha.split("-")
     fechajun = dia,mes,anio
     date = '-'.join(fechajun)
@@ -40,3 +42,6 @@ def task():
     fdatos.close()
     return redirect(url_for("index"))
 
+@app.errorhandler(500)
+def base_error_handler(e):
+    return render_template('500.html'), 500
