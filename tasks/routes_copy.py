@@ -10,14 +10,21 @@ def index():
         ldatos = open('./data/tareas.dat', 'r')
         datreader = csv.reader(ldatos, delimiter=',')
 
-        datos = {}
         d = []
 
         for linea in datreader:
             d.append(linea)
 
     do = sorted(d, key=operator.itemgetter(2))
-    return render_template("index.html", e=do)
+    
+    datoFormat = []
+    for linea in do:
+        anio,mes,dia = linea[2].split("-")
+        fechajun = dia,mes,anio
+        linea[2] = '-'.join(fechajun)
+        datoFormat.append(linea)
+    
+    return render_template("index.html", e=datoFormat)
 
 @app.route("/task.html", methods=['GET', 'POST'])
 def task():
@@ -33,10 +40,11 @@ def task():
     fecha = request.values.get('date')
     if title == '' or desc == '' or fecha == '':
         return render_template('500.html')
+    '''
     anio, mes, dia = fecha.split("-")
     fechajun = dia,mes,anio
     date = '-'.join(fechajun)
-
+    '''
     csvwriter.writerow([title, desc, date])
 
     fdatos.close()
