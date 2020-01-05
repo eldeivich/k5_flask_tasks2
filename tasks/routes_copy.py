@@ -1,6 +1,6 @@
 from tasks import app
 from flask import render_template, request, url_for, redirect
-from datetime import datetime
+from datetime import datetime, date
 import csv, operator
 
 
@@ -38,14 +38,19 @@ def task():
     title = request.values.get('title')
     desc = request.values.get('desc')
     fecha = request.values.get('date')
+    
+    today = date.today()
+    
     if title == '' or desc == '' or fecha == '':
         return render_template('500.html')
+    elif fecha < str(today):
+        return render_template('501.html')
     '''
     anio, mes, dia = fecha.split("-")
     fechajun = dia,mes,anio
     date = '-'.join(fechajun)
     '''
-    csvwriter.writerow([title, desc, date])
+    csvwriter.writerow([title, desc, fecha])
 
     fdatos.close()
     return redirect(url_for("index"))
